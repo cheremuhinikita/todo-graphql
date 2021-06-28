@@ -8,12 +8,11 @@ import {
 	UseFormStateReturn,
 } from 'react-hook-form';
 import { classValidatorResolver } from '@hookform/resolvers/class-validator';
-
 import { ClassConstructor } from 'class-transformer';
-import { mapGqlErrors } from '@core/apollo/utils';
 import { ErrorResponse } from '@apollo/client/link/error';
-import { matchesErrorHandler } from '@core/errorHandling';
-import { validationFailedHandler } from '@core/errorHandling/handlers/ValidationFailedHandler';
+
+import { mapGqlErrors } from '@core/apollo/utils';
+import { matchesErrorHandler, validationFailedHandler } from '@core/errorHandling';
 import { IValidationError } from '@core/interfaces';
 
 type Handler<T> = (data: T) => void;

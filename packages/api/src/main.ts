@@ -3,7 +3,7 @@ import { ValidationPipe, Logger } from '@nestjs/common';
 import { ConfigService } from '@nestjs/config';
 import { MikroORM } from '@mikro-orm/core';
 
-import { ValidationException } from '@common/exceptions/validation.exception';
+import { ValidationException } from '@common/exceptions';
 
 import { InitializerService } from '@modules/initializer/initializer.service';
 
