@@ -1,0 +1,20 @@
+{
+	"name": "@todo-graphql/common",
+	"private": false,
+	"version": "1.0.0",
+	"main": "dist/index.js",
+	"typings": "dist/index.d.ts",
+	"scripts": {
+		"build": "rimraf ./dist && tsc",
+		"dev": "tsc --watch",
+		"format": "prettier --write \"src/**/*.ts\""
+	},
+	"dependencies": {
+		"typescript": "^4.0.5",
+		"class-validator": "^0.13.1"
+	},
+	"devDependencies": {
+		"rimraf": "^2.6.2",
+		"prettier": "^2.1.2"
+	}
+}

@@ -1,0 +1,10 @@
+query Profile {
+	profile {
+		id
+		username
+		email
+		role
+		createDate
+		updateDate
+	}
+}

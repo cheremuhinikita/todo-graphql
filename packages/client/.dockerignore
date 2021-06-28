@@ -1,0 +1,15 @@
+build
+node_modules
+
+.idea
+
+.dockerignore
+Dockerfile
+
+.editorconfig
+.eslintignore
+.gitignore
+.prettierignore
+.prettierrc
+
+yarn.lock

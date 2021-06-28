@@ -1,0 +1,27 @@
+mutation Login($input: LoginInput!) {
+	login(input: $input) {
+		token
+		profile {
+			id
+			username
+			email
+			role
+			createDate
+			updateDate
+		}
+	}
+}
+
+mutation Register($input: RegisterInput!) {
+	register(input: $input) {
+		id
+	}
+}
+
+mutation ResetPassword($input: ResetPasswordInput!) {
+	resetPassword(input: $input)
+}
+
+mutation RecoveryPassword($input: RecoveryPasswordInput!) {
+	recoveryPassword(input: $input)
+}

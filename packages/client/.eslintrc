@@ -1,0 +1,83 @@
+{
+	"env": {
+		"browser": true,
+		"es6": true
+	},
+	"globals": {
+		"Atomics": "readonly",
+		"SharedArrayBuffer": "readonly"
+	},
+	"parser": "@typescript-eslint/parser",
+	"parserOptions": {
+		"ecmaFeatures": {
+			"jsx": true
+		},
+		"ecmaVersion": 2018,
+		"sourceType": "module"
+	},
+	"plugins": ["react", "@typescript-eslint", "prettier"],
+	"extends": [
+		"airbnb",
+		"plugin:react/recommended",
+		"plugin:prettier/recommended",
+		"plugin:@typescript-eslint/eslint-recommended",
+		"plugin:@typescript-eslint/recommended"
+	],
+	"rules": {
+		"indent": ["error", "tab", { "SwitchCase": 1 }],
+		"quotes": ["error", "single"],
+		"camelcase": "off",
+		"no-useless-catch": "off",
+		"no-empty": "off",
+		"no-tabs": "off",
+		"no-shadow": "off",
+		"no-underscore-dangle": "off",
+		"no-use-before-define": "off",
+		"no-param-reassign": [
+			"error",
+			{ "props": true, "ignorePropertyModificationsFor": ["draft"] }
+		],
+		"class-methods-use-this": "off",
+		"import/extensions": [
+			"error",
+			"ignorePackages",
+			{
+				"js": "never",
+				"jsx": "never",
+				"ts": "never",
+				"tsx": "never"
+			}
+		],
+		"import/prefer-default-export": "off",
+		"prettier/prettier": "warn",
+		"react/prop-types": "off",
+		"react/jsx-indent": ["error", "tab"],
+		"react/jsx-indent-props": ["error", "tab"],
+		"react/require-default-props": "off",
+		"react/jsx-props-no-spreading": "off",
+		"react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx", ".ts", ".tsx"] }],
+		"react/jsx-wrap-multilines": "off",
+		"@typescript-eslint/no-shadow": "error",
+		"@typescript-eslint/no-use-before-define": ["error"]
+	},
+	"settings": {
+		"import/resolver": {
+			"node": {
+				"extensions": [".js", ".jsx", ".ts", ".tsx"]
+			},
+			"alias": {
+				"map": [
+					["@containers", "./src/containers"],
+					["@core", "./src/core"],
+					["@modules", "./src/modules"],
+					["@pages", "./src/pages"],
+					["@providers", "./src/providers"],
+					["@components", "./src/components"],
+					["@routes", "./src/routes"],
+					["@gql", "./src/gql.ts"]
+				],
+				"extensions": [".ts", ".tsx", ".json"]
+			}
+		}
+	}
+}

@@ -1,0 +1,48 @@
+version: '3.8'
+
+services:
+    client:
+        build:
+            dockerfile: ./packages/client/Dockerfile
+            context: .
+            args:
+                REACT_APP_API_URL: ${REACT_APP_API_URL}
+        depends_on:
+            - api
+        env_file: ./envs/.docker.env
+        ports:
+            - ${CLIENT_PORT}:${CLIENT_PORT}
+
+    api:
+        build:
+            dockerfile: ./packages/api/Dockerfile
+            context: .
+        depends_on:
+            - postgres
+            - redis
+        env_file: ./envs/.docker.env
+        environment:
+            - POSTGRES_HOST=postgres
+        ports:
+            - 8888:8888
+        networks:
+            - api-network
+
+    postgres:
+        image: postgres:12
+        env_file: ./envs/.docker.env
+        ports:
+            - 5432:5432
+        networks:
+            - api-network
+
+    redis:
+        image: redis
+        ports:
+            - 6379:6379
+        networks:
+            - api-network
+
+networks:
+    api-network:
+        driver: bridge

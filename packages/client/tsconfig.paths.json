@@ -1,0 +1,15 @@
+{
+	"compilerOptions": {
+		"baseUrl": "./src/",
+		"paths": {
+			"@containers": ["containers"],
+			"@core/*": ["core/*"],
+			"@modules/*": ["modules/*"],
+			"@pages": ["pages"],
+			"@providers": ["providers"],
+			"@components": ["components"],
+			"@routes": ["routes"],
+			"@gql": ["gql.ts"]
+		}
+	}
+}

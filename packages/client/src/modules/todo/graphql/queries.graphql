@@ -1,0 +1,19 @@
+query FindAllTodo {
+	todos {
+		id
+		title
+		description
+		createDate
+		updateDate
+	}
+}
+
+query FindOneTodo($id: Int!) {
+	todo(id: $id) {
+		id
+		title
+		description
+		createDate
+		updateDate
+	}
+}

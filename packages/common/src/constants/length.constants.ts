@@ -1,0 +1,1 @@
+export const PASSWORD_CHANGE_CODE_LENGTH = 8;

@@ -1,0 +1,25 @@
+mutation CreateUser($input: CreateOrUpdateUserInput!) {
+	createUser(input: $input) {
+		id
+		username
+		email
+		role
+		createDate
+		updateDate
+	}
+}
+
+mutation UpdateUser($id: Int!, $input: CreateOrUpdateUserInput!) {
+	updateUser(id: $id, input: $input) {
+		id
+		username
+		email
+		role
+		createDate
+		updateDate
+	}
+}
+
+mutation RemoveUser($id: Int!) {
+	removeUser(id: $id)
+}

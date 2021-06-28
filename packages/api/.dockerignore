@@ -1,0 +1,14 @@
+dist
+node_modules
+
+.idea
+
+.dockerignore
+Dockerfile
+
+.editorconfig
+.gitignore
+.prettierignore
+.prettierrc
+
+yarn.lock

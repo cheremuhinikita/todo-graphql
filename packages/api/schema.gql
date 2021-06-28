@@ -1,0 +1,90 @@
+# ------------------------------------------------------
+# THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
+# ------------------------------------------------------
+
+type TodoType {
+  id: Int!
+  createDate: Date!
+  updateDate: Date!
+  title: String!
+  description: String!
+  user: UserType!
+}
+
+"""Date custom scalar type"""
+scalar Date
+
+type UserType {
+  id: Int!
+  createDate: Date!
+  updateDate: Date!
+  email: String!
+  username: String!
+  role: Role!
+  todo: [TodoType!]!
+}
+
+enum Role {
+  USER
+  ADMIN
+}
+
+type LoginType {
+  token: String!
+  profile: UserType!
+}
+
+type Query {
+  users: [UserType!]!
+  user(id: Int!): UserType!
+  todos: [TodoType!]!
+  todo(id: Int!): TodoType!
+  profile: UserType!
+}
+
+type Mutation {
+  createUser(input: CreateOrUpdateUserInput!): UserType!
+  updateUser(input: CreateOrUpdateUserInput!, id: Int!): UserType!
+  removeUser(id: Int!): Boolean!
+  createTodo(input: CreateOrUpdateTodoInput!): TodoType!
+  updateTodo(input: CreateOrUpdateTodoInput!, id: Int!): TodoType!
+  removeTodo(id: Int!): Boolean!
+  register(input: RegisterInput!): UserType!
+  login(input: LoginInput!): LoginType!
+  recoveryPassword(input: RecoveryPasswordInput!): Boolean!
+  resetPassword(input: ResetPasswordInput!): Boolean!
+}
+
+input CreateOrUpdateUserInput {
+  email: String!
+  username: String!
+  password: String!
+  role: Role!
+}
+
+input CreateOrUpdateTodoInput {
+  title: String!
+  description: String!
+}
+
+input RegisterInput {
+  email: String!
+  username: String!
+  password: String!
+}
+
+input LoginInput {
+  username: String!
+  password: String!
+}
+
+input RecoveryPasswordInput {
+  email: String!
+}
+
+input ResetPasswordInput {
+  email: String!
+  passwordChangeCode: Int!
+  password: String!
+  passwordConfirm: String!
+}

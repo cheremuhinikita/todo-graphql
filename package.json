@@ -1,0 +1,23 @@
+{
+	"name": "@todo-graphql/root",
+	"private": true,
+	"workspaces": [
+		"packages/*"
+	],
+	"devDependencies": {
+		"lerna": "^4.0.0",
+		"husky": "^6.0.0"
+	},
+	"scripts": {
+		"prepare": "husky install",
+		"precommit": "npm run lint && npm run format",
+		"build:common": "yarn workspace @todo-graphql/common build",
+		"start:deps": "npm run build:common && docker-compose --env-file ./envs/.docker.env up -d --build postgres redis",
+		"start:client": "docker-compose --env-file ./envs/.docker.env up -d --build client",
+		"start:api": "docker-compose --env-file ./envs/.docker.env up -d --build api",
+		"start:all": "docker-compose --env-file ./envs/.docker.env up",
+		"dev": "npm run start:deps && lerna run dev --parallel",
+		"lint": "lerna run lint --stream",
+		"format": "lerna run format --stream"
+	}
+}

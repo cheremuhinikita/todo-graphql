@@ -1,0 +1,5 @@
+export enum AuthStatus {
+	INITIAL = 'INITIAL',
+	AUTHORIZED = 'AUTHORIZED',
+	UNAUTHORIZED = 'UNAUTHORIZED',
+}
