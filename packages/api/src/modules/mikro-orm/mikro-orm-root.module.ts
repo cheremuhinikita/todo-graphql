@@ -1,6 +1,7 @@
 import { Logger } from '@nestjs/common';
 import { ConfigModule, ConfigService } from '@nestjs/config';
 import { MikroOrmModule } from '@mikro-orm/nestjs';
+import { noop } from 'rxjs';
 
 import { stringToBoolean } from '@common/utils';
 
@@ -23,7 +24,7 @@ export const MikroOrmRootModule = MikroOrmModule.forRootAsync({
 			password: configService.get('POSTGRES_PASSWORD'),
 			dbName: configService.get('POSTGRES_DB'),
 			debug: stringToBoolean(configService.get('MIKROORM_DEBUG')),
-			logger: isLogging && logger.log.bind(logger),
+			logger: isLogging ? logger.log.bind(logger) : noop,
 		};
 	},
 	inject: [ConfigService, UserSubscriber],

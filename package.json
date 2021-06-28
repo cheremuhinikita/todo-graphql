@@ -9,15 +9,27 @@
 		"husky": "^6.0.0"
 	},
 	"scripts": {
+		"<---PRE--->": "---------------------------------------------------------------------------------------------------",
 		"prepare": "husky install",
 		"precommit": "npm run lint && npm run format",
+		"<---BUILD--->": "-------------------------------------------------------------------------------------------------",
 		"build:common": "yarn workspace @todo-graphql/common build",
+		"build:client": "yarn workspace @todo-graphql/client build",
+		"build:api": "yarn workspace @todo-graphql/api build",
+		"build:all": "lerna run build --stream",
+		"<---START--->": "-------------------------------------------------------------------------------------------------",
 		"start:deps": "npm run build:common && docker-compose --env-file ./envs/.docker.env up -d --build postgres redis",
 		"start:client": "docker-compose --env-file ./envs/.docker.env up -d --build client",
 		"start:api": "docker-compose --env-file ./envs/.docker.env up -d --build api",
 		"start:all": "docker-compose --env-file ./envs/.docker.env up",
-		"dev": "npm run start:deps && lerna run dev --parallel",
+		"<---DEV--->": "---------------------------------------------------------------------------------------------------",
+		"dev:common": "npm run start:deps && yarn workspace @todo-graphql/common dev",
+		"dev:client": "npm run start:deps && yarn workspace @todo-graphql/client dev",
+		"dev:api": "npm run start:deps && yarn workspace @todo-graphql/api dev",
+		"dev:all": "npm run start:deps && lerna run dev --parallel",
+		"<---LINTER--->": "------------------------------------------------------------------------------------------------",
 		"lint": "lerna run lint --stream",
+		"<---FORMATTER--->": "---------------------------------------------------------------------------------------------",
 		"format": "lerna run format --stream"
 	}
 }

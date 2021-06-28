@@ -21,7 +21,7 @@ export const LengthNumber =
 
 				defaultMessage(args: ValidationArguments) {
 					const [relatedPropertyValue] = args.constraints;
-					return `property must be longer than or equal to ${relatedPropertyValue}`;
+					return `Это поле должно состоять из ${relatedPropertyValue} цифр`;
 				},
 			},
 		});

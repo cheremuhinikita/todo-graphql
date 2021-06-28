@@ -1,16 +1,16 @@
 {
 	"name": "@todo-graphql/api",
-	"version": "0.0.1",
-	"description": "",
-	"author": "",
+	"version": "1.0.0",
 	"private": true,
 	"license": "UNLICENSED",
 	"scripts": {
 		"<---BUILD--->": "-------------------------------------------------------------------------------------------------",
 		"prebuild": "rimraf dist",
 		"build": "nest build",
+		"<---DEV--->": "---------------------------------------------------------------------------------------------------",
 		"dev": "cross-env ENV_PATH=../../envs/.env nest start --watch",
 		"debug": "cross-env ENV_PATH=../.env nest start --debug --watch",
+		"<---PROD--->": "--------------------------------------------------------------------------------------------------",
 		"prod": "node dist/main",
 		"<---SCHEMA--->": "------------------------------------------------------------------------------------------------",
 		"schema:create": "cross-env ENV_PATH=../../envs/.env npx mikro-orm schema:create --run",
@@ -21,13 +21,14 @@
 		"migration:up": "cross-env ENV_PATH=../../envs/.env  npx mikro-orm migration:up",
 		"<---LINTER--->": "------------------------------------------------------------------------------------------------",
 		"lint": "eslint \"{src,apps,libs,test}/**/*.ts\" --fix",
+		"<---FORMATTER--->": "---------------------------------------------------------------------------------------------",
 		"format": "prettier --write \"src/**/*.ts\"",
 		"<----TEST---->": "------------------------------------------------------------------------------------------------",
 		"test": "jest",
 		"test:watch": "jest --watch",
 		"test:cov": "jest --coverage",
 		"test:debug": "node --inspect-brk -r tsconfig-paths/register -r ts-node/register node_modules/.bin/jest --runInBand",
-		"test:e2e": "cross-env ENV_PATH=../../envs/.env  jest --config ./test/jest-e2e.json --detectOpenHandles"
+		"test:e2e": "cross-env ENV_PATH=../../envs/.env jest --config ./test/jest-e2e.json --detectOpenHandles"
 	},
 	"dependencies": {
 		"@todo-graphql/common": "1.0.0",

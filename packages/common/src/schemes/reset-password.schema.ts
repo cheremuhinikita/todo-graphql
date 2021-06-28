@@ -18,7 +18,9 @@ export class ResetPasswordSchema {
 	@IsNotEmpty()
 	@IsNumber()
 	@IsInt()
-	@LengthNumber(PASSWORD_CHANGE_CODE_LENGTH)
+	@LengthNumber(PASSWORD_CHANGE_CODE_LENGTH, {
+		message: `Код должен состоять из ${PASSWORD_CHANGE_CODE_LENGTH} цифр`,
+	})
 	readonly passwordChangeCode: number;
 
 	@IsNotEmpty()
@@ -27,6 +29,6 @@ export class ResetPasswordSchema {
 	readonly password: string;
 
 	@IsNotEmpty()
-	@IsEqualTo('password')
+	@IsEqualTo('password', { message: 'Пароли не совпадают' })
 	readonly passwordConfirm: string;
 }

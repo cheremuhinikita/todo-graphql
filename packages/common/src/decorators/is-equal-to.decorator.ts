@@ -18,7 +18,7 @@ export const IsEqualTo =
 
 				defaultMessage(args: ValidationArguments) {
 					const [relatedPropertyName] = args.constraints;
-					return `property must match ${relatedPropertyName} exactly`;
+					return `Поле должно точно соответствовать ${relatedPropertyName}`;
 				},
 			},
 		});

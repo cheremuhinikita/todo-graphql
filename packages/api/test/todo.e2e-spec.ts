@@ -1,6 +1,7 @@
 import { INestApplication } from '@nestjs/common';
 import { Test, TestingModule } from '@nestjs/testing';
 import * as request from 'supertest';
+import { MikroORM } from '@mikro-orm/core';
 
 import {
 	ConfigRootModule,
@@ -17,7 +18,6 @@ import { TodoModule } from '@modules/todo/todo.module';
 import { UsersModule } from '@modules/users/users.module';
 import { CreateOrUpdateTodo } from '@modules/todo/types';
 import { TodoType } from '@modules/todo/models';
-import { MikroORM } from '@mikro-orm/core';
 import { InitializerService } from '@modules/initializer/initializer.service';
 
 describe('TodoController (e2e)', () => {
@@ -158,8 +158,8 @@ describe('TodoController (e2e)', () => {
 	});
 
 	const updateTodo: CreateOrUpdateTodo = {
-		title: 'title1',
-		description: 'description1',
+		title: 'title2',
+		description: 'description2',
 	};
 
 	it('updateTodo', () => {
