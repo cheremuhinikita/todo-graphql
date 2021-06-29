@@ -20,6 +20,6 @@ export default makeStyles((theme) => ({
 		margin: theme.spacing(3, 0, 2),
 	},
 	select: {
-		margin: theme.spacing(1, 0),
+		margin: `${theme.spacing(2, 0, 1)}!important`,
 	},
 }));
