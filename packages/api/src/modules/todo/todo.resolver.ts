@@ -5,14 +5,14 @@ import { EntityHelper } from '@common/helper';
 import { Role } from '@common/enums';
 
 import { Auth } from '@modules/auth/decorators';
-import { User } from '@modules/users/entities';
 import { UsersService } from '@modules/users/users.service';
+import { User } from '@modules/users/entities';
+import { UserType } from '@modules/users/models';
 
 import { TodoService } from './todo.service';
 import { TodoType } from './models';
 import { Todo } from './entities';
 import { CreateOrUpdateTodoInput } from './dto';
-import { UserType } from '@modules/users/models';
 
 @Auth([Role.USER])
 @Resolver(() => TodoType)

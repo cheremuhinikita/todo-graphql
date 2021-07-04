@@ -2,18 +2,6 @@
 # THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
 # ------------------------------------------------------
 
-type TodoType {
-  id: Int!
-  createDate: Date!
-  updateDate: Date!
-  title: String!
-  description: String!
-  user: UserType!
-}
-
-"""Date custom scalar type"""
-scalar Date
-
 type UserType {
   id: Int!
   createDate: Date!
@@ -24,9 +12,21 @@ type UserType {
   todo: [TodoType!]!
 }
 
+"""Date custom scalar type"""
+scalar Date
+
 enum Role {
   USER
   ADMIN
+}
+
+type TodoType {
+  id: Int!
+  createDate: Date!
+  updateDate: Date!
+  title: String!
+  description: String!
+  user: UserType!
 }
 
 type LoginType {
