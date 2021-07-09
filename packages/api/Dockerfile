@@ -27,7 +27,6 @@ COPY --from=build /usr/src/app/packages/common/dist /usr/src/app/packages/common
 
 COPY --from=build /usr/src/app/packages/api/package.json /usr/src/app/packages/api/package.json
 COPY --from=build /usr/src/app/packages/api/dist /usr/src/app/packages/api/dist
-COPY --from=build /usr/src/app/packages/api/mikro-orm.config.js /usr/src/app/packages/api/mikro-orm.config.js
 
 ENV NODE_ENV production
 
